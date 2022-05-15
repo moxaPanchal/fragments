@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/moxaPanchal/fragments/issues"
   },
-  "homepage": "https://github.com/moxaPanchal/fragments#readme"
+  "homepage": "https://github.com/moxaPanchal/fragments#readme",
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
 }
