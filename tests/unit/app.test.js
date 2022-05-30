@@ -15,9 +15,6 @@ describe('App test', () => {
 
   test('should return a error message', async () => {
     const res = await request(app).get('/fragments');
-    // expect(res.statusCode).toBe(404);
-    // expect(res.body.status).toEqual('error');
-    // expect(res.error.message).toEqual('not found');
-    expect(res.error.).toEqual('not found');
+    expect(res.error.message).toEqual('cannot GET /fragments (404)');
   });
 });
