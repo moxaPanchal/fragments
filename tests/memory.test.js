@@ -1,5 +1,4 @@
 const data = require('../src/model/data/memory/index');
-const MemoryDB = require('../src/model/data/memory/memory-db');
 
 describe('In-memory databases', () => {
   let customFragment = {
