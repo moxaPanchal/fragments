@@ -11,12 +11,6 @@ describe('In-memory databases', () => {
     size: 256,
   };
 
-  // Each test will get its own, empty database instance
-  beforeEach(() => {
-    inMemory_data = new MemoryDB();
-    inMemory_metadata = new MemoryDB();
-  });
-
   test('write fragment metadata to memory db', async () => {
     const write = await data.writeFragment(customFragment);
     expect(write).toBe(undefined);
