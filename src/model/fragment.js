@@ -116,12 +116,7 @@ class Fragment {
    */
   get formats() {
     // TODO
-    const acceptedFormats = [
-      'text/plain',
-      'text/markdown',
-      'text/html',
-      'text/plain; charset=utf-8',
-    ];
+    const acceptedFormats = ['text/plain', 'text/plain; charset=utf-8'];
     return acceptedFormats.values();
   }
 
