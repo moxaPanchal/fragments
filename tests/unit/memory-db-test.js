@@ -17,6 +17,7 @@ describe('memory-db', () => {
   test('get() returns what we put() into the db', async () => {
     const data = { value: 123 };
     await db.put('a', 'b', data);
+
     const result = await db.get('a', 'b');
     expect(result).toEqual(data);
   });
