@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "description": "Fragments back-end API",
   "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint --config .eslintrc.js src/** tests/**",
+    "debug": "cross-env LOG_LEVEL=debug nodemon --inspect=0.0.0.0:9229 ./src/index.js --watch src",
+    "dev": "cross-env LOG_LEVEL=debug nodemon ./src/index.js --watch src",
     "test:watch": "jest -c jest.config.js --runInBand --watch --",
     "test": "jest -c jest.config.js --runInBand --",
-    "coverage": "jest -c jest.config.js --runInBand --coverage",
-    "lint": "eslint --config .eslintrc.js src/** tests/**",
-    "start": "node src/index.js",
-    "dev": "cross-env LOG_LEVEL=debug nodemon ./src/index.js --watch src",
-    "debug": "cross-env LOG_LEVEL=debug nodemon --inspect=0.0.0.0:9229 ./src/index.js --watch src"
+    "coverage": "jest -c jest.config.js --runInBand --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "aws-jwt-verify": "^2.1.3",
+    "build-app": "^0.9.6",
+    "build-scripts": "^1.3.0",
     "compression": "^1.7.4",
     "content-type": "^1.0.4",
     "cors": "^2.8.5",
