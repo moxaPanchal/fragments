@@ -44,7 +44,7 @@ class Fragment {
    */
 
   static async byId(ownerId, id) {
-    id = nanoid;
+    id = this.id;
     // TODO
     return Promise.resolve(readFragment(ownerId, id));
   }
@@ -56,7 +56,7 @@ class Fragment {
    * @returns Promise
    */
   static delete(ownerId, id) {
-    id = nanoid;
+    id = this.id;
     // TODO
     return Promise.resolve(deleteFragment(ownerId, id));
   }
@@ -107,6 +107,8 @@ class Fragment {
     // TODO
     if (this.mimeType() == 'text/*') {
       return true;
+    } else {
+      return false;
     }
   }
 
