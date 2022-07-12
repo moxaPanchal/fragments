@@ -1,14 +1,14 @@
-// Use https://www.npmjs.com/package/nanoid to create unique IDs
-//const { nanoid } = require('nanoid');
+const { randomUUID } = require('crypto');
+const id = randomUUID(); // '30a84843-0cd4-4975-95ba-b96112aea189'
 // Use https://www.npmjs.com/package/content-type to create/parse Content-Type headers
 const contentType = require('content-type');
 
 // Functions for working with fragment metadata/data using our DB
 const {
   readFragment,
-  // writeFragment,
+  writeFragment,
   readFragmentData,
-  // writeFragmentData,
+  writeFragmentData,
   listFragments,
   deleteFragment,
 } = require('./data');
@@ -17,11 +17,30 @@ const {
 class Fragment {
   constructor({ id, ownerId, created, updated, type, size = 0 }) {
     // TODO
-    this.id = id;
+    if (typeof ownerId !== 'string') {
+      throw new Error('Owner ID required');
+    }
     this.ownerId = ownerId;
+
+    if (id !== /[A-Za-z0-9_-]+/) {
+      throw new Error('ID required');
+    }
+    this.id = id;
+
     this.created = created;
     this.updated = updated;
+
+    if (type != 'text/plain' && type != 'text/plain; charset=utf-8') {
+      throw new Error('Type required');
+    }
     this.type = type;
+
+    if (typeof size !== 'number') {
+      throw new Error('Size must be a number');
+    }
+    if (size < 0) {
+      throw new Error('Size cannot be negative');
+    }
     this.size = size;
   }
 
@@ -33,7 +52,12 @@ class Fragment {
    */
   static async byUser(ownerId, expand = false) {
     // TODO
-    return Promise.all(listFragments(ownerId, expand));
+    // if (!Buffer.isBuffer(data)) {
+    //   throw new Error('Not a buffer object');
+    // }
+    // this.size = data.length;
+    // this.save();
+    // return await writeFragmentData(this.ownerId, this.id, data);
   }
 
   /**
@@ -86,7 +110,12 @@ class Fragment {
    */
   async setData(data) {
     // TODO
-    return Promise.resolve(data);
+    if (!Buffer.isBuffer(data)) {
+      throw new Error('Not a buffer object');
+    }
+    this.size = data.length;
+    this.save();
+    return await writeFragmentData(this.ownerId, this.id, data);
   }
 
   /**

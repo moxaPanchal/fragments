@@ -50,6 +50,8 @@ COPY ./src ./src
 # Stage 3: serving the app
 FROM nginx:1.22.0-alpine@sha256:0a88a14a264f46562e2d1f318fbf0606bc87e72727528b51613a5e96f483a0f6 AS deploy
 
+WORKDIR /app
+
 COPY --from=build /app /usr/share/nginx/html
 
 # Copy our HTPASSWD file
