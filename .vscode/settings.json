@@ -9,5 +9,5 @@
   },
   "files.eol": "\n",
   "files.insertFinalNewline": true,
-  "cSpell.words": ["hadolint"]
+  "cSpell.words": ["buildx", "DOCKERHUB", "hadolint"]
 }
