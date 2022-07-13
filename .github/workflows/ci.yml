@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
+          #cache: 'npm'
 
       - name: Install node dependencies
         run: npm ci
@@ -88,8 +88,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ moxapanchal }}
-          password: ${{ 1bf1f264-4337-4a14-91f1-6f72ef1e4139 }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # Build and Push an Image to Docker Hub
       - name: Build and push
