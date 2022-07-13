@@ -30,6 +30,7 @@
     "helmet": "^5.0.2",
     "http-auth": "^4.1.9",
     "http-auth-passport": "^1.0.6",
+    "markdown-it": "^13.0.1",
     "nanoid": "^4.0.0",
     "node": "^17.7.2",
     "passport": "^0.6.0",
@@ -37,6 +38,7 @@
     "pino": "^7.11.0",
     "pino-http": "^7.0.0",
     "pino-pretty": "^7.6.1",
+    "sharp": "^0.30.7",
     "stoppable": "^1.1.0"
   },
   "devDependencies": {
